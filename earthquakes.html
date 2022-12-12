@@ -17,6 +17,9 @@
  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
+  <!-- Pointfile -->
+  <script src="earthquake_points.js"></script>
+  
   <!-- styles for elements html and body: fullscreen  -->
  <style>
   html, body {
@@ -33,6 +36,9 @@
  
  
  <script>
+  
+  // Points
+  var overlay_eq_points = L.geoJSON(eq_points).addTo(mymap);
  
   // Create Leaflet map
   var mymap = L.map('mapid').setView([51.5, 11.5], 6);
@@ -55,7 +61,7 @@
   });
   
   // Basemap dictonary
-var basemaps = {
+ var basemaps = {
  "Open Street Map DE": osm_basemap,
  "Open Topo Map": otm_basemap,
  "Open Street Map INT": osmint_basemap
@@ -63,7 +69,9 @@ var basemaps = {
  
 // Layer control
 var legend = L.control.layers(basemaps, null, {collapsed: false, position: "topleft"}).addTo(mymap);
-  
+
+// Scale control
+var scale = L.control.scale({position: "bottomright", maxWidth: 300, imperial: false}).addTo(mymap);
  </script>
  
 </body>
