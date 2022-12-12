@@ -1,4 +1,4 @@
-var eq_points = {
+var eq_points ={
 "type": "FeatureCollection",
 "name": "eqarthquakes_ger",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
